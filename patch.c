@@ -3,6 +3,9 @@
 
 #ifdef NEWSGOLD
     #ifdef ELKA
+        #ifdef E71_45
+            #include "E71_45.h"
+        #endif
     #else
         #ifdef S75_52
             #include "S75_52.h"
@@ -20,17 +23,25 @@
 #define OnChange_unk ((void (*)(GUI *gui))(ADDR_ON_CHANGE_UNK))
 #define OnClose_unk  ((void (*)(GUI *gui, int r1))(ADDR_ON_CLOSE_UNK))
 
-const unsigned char ICONS_TABLE[] = {
-        0x4, 0x2, 0x7,
-        0x3, 0x9, 0xB,
-        0x6, 0x8, 0x1,
-        0x5, 0xA, 0xC
-};
-
 #ifdef NEWSGOLD
     #ifdef ELKA
+        #define ICONS_OFFSET 860
+        #ifdef E71_45
+            const unsigned char ICONS_TABLE[] = {
+                0x3, 0x1, 0x7,
+                0x2, 0x9, 0xB,
+                0x6, 0x8, 0x5,
+                0x4, 0xA, 0xC,
+            };
+        #endif
     #else
-        #define ICONS_OFFSET 830
+        #define ICONS_OFFSET 831
+        const unsigned char ICONS_TABLE[] = {
+            0x3, 0x1, 0x6,
+            0x2, 0x8, 0xA,
+            0x5, 0x7, 0x0,
+            0x4, 0x9, 0xB
+        };
     #endif
 #endif
 
@@ -41,7 +52,7 @@ void NativeMenu_OnCreate(GUI *gui, int r1, int r2) {
     void *hdr_pointer = _GetDataOfItemByID(gui, 2);
     if (hdr_pointer) {
         int *icons = _malloc(sizeof(int) * 2);
-        icons[0] = 0;
+        icons[0] = ICONS_OFFSET + ICONS_TABLE[4];
         icons[1] = 0;
         _SetHeaderIcon(hdr_pointer, icons, (unsigned int *)ADDR_MALLOC, (unsigned int *)ADDR_MFREE);
         gui->color1 = (int)icons;

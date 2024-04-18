@@ -23,5 +23,10 @@ s75_52:
 	$(call ld,S75_52)
 	$(call obj)
 
+e71_45:
+	$(call gcc,-DNEWSGOLD -DELKA -DE71_45)
+	$(call ld,E71_45)
+	$(call obj)
+
 clean:
 	rm -f patch.o patch.elf patch*.bin
