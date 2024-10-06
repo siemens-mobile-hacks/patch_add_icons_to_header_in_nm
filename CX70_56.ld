@@ -1,12 +1,12 @@
 SECTIONS {
-    .NativeMenu_OnCreate 0xA0C9D950 : {
+    .NativeMenu_OnCreate 0xA0F0F600 : {
         KEEP(*(.text.NativeMenu_OnCreate*))
     }
-    .NativeMenu_OnChange 0xA0C9D9A0 : {
+    .NativeMenu_OnChange 0xA0F0F660 : {
         KEEP(*(.text.NativeMenu_OnChange*))
         KEEP(*(.rodata*))
     }
-    .NativeMenu_OnClose 0xA0C9D9DA : {
+    .NativeMenu_OnClose 0xA0F0F6D0 : {
         KEEP(*(.text.NativeMenu_OnClose*))
     }
 }
