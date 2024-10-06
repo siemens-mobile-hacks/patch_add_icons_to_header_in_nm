@@ -14,8 +14,8 @@ define obj
 	arm-none-eabi-objcopy -O binary -j .NativeMenu_OnClose patch.elf patch3.bin
 	arm-none-eabi-objdump -D patch.elf
 	cat patch1.bin | xxd -ps -c 80
-	cat patch2.bin | xxd -ps -c 78
-	cat patch3.bin | xxd -ps -c 38
+	cat patch2.bin | xxd -ps -c 90
+	cat patch3.bin | xxd -ps -c 40
 endef
 
 e71_45:

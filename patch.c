@@ -74,10 +74,15 @@ __attribute__((target("thumb")))
 __attribute__((section(".text.NativeMenu_OnChange")))
 void NativeMenu_OnChange(GUI *gui) {
     OnChange_unk(gui);
+#ifdef NEWSGOLD
     int *icons = (int*)(gui->color1);
     icons[0] = ICONS_TABLE[gui->unk10 - 4] + ICONS_OFFSET;
-#ifndef NEWSGOLD
-    _SetHeaderIcon(_GetHeaderPointer(gui), icons, (unsigned int *)ADDR_MALLOC, (unsigned int *)ADDR_MFREE);
+#else
+    if (gui->definition == (void*)ADDR_NATIVEMENU_DEFINITION) {
+        int *icons = (int*)(gui->color1);
+        icons[0] = ICONS_TABLE[gui->unk10 - 4] + ICONS_OFFSET;
+        _SetHeaderIcon(_GetHeaderPointer(gui), icons, (unsigned int *)ADDR_MALLOC, (unsigned int *)ADDR_MFREE);
+    }
 #endif
 }
 
