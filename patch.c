@@ -6,9 +6,15 @@
         #ifdef E71_45
             #include "E71_45.h"
         #endif
+        #ifdef EL71_45
+            #include "EL71_45.h"
+        #endif
     #else
         #ifdef S75_52
             #include "S75_52.h"
+        #endif
+        #ifdef C81_51
+            #include "C81_51.h"
         #endif
     #endif
 #else
