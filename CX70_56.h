@@ -10,3 +10,10 @@
 #define ADDR_ON_CLOSE_UNK  (0xA0C975AE | 1)
 
 #define ADDR_NATIVEMENU_DEFINITION 0xA0941C4C
+
+#define ICONS_OFFSET 618
+const unsigned char ICONS_TABLE[] = {
+    0xC0, 0xC6, 0xEC,
+    0xB8, 0xB2, 0x01, // 3, 5 reversed :-(
+    0x45, 0x41, 0xCA
+};

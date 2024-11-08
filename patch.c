@@ -21,6 +21,9 @@
     #ifdef CX70_56
         #include "CX70_56.h"
     #endif
+    #ifdef S65_58
+        #include "S65_58.h"
+    #endif
 #endif
 
 
@@ -35,29 +38,10 @@
 
 #ifdef NEWSGOLD
     #ifdef ELKA
-        #define ICONS_OFFSET 860
-        const unsigned char ICONS_TABLE[] = { \
-            0x3, 0x1, 0x7,
-            0x2, 0x9, 0xB,
-            0x6, 0x8, 0x5,
-            0x4, 0xA, 0xC,
-        };
+        #include "ELKA.h"
     #else
-        #define ICONS_OFFSET 831
-        const unsigned char ICONS_TABLE[] = {
-            0x3, 0x1, 0x6,
-            0x2, 0x8, 0xA,
-            0x5, 0x7, 0x0,
-            0x4, 0x9, 0xB
-        };
+        #include "NSG.h"
     #endif
-#else
-    #define ICONS_OFFSET 618
-    const unsigned char ICONS_TABLE[] = {
-        0xC0, 0xC6, 0xEC,
-        0xB8, 0xB2, 0x01, // 3, 5 reversed :-(
-        0x45, 0x41, 0xCA
-    };
 #endif
 
 __attribute__((target("thumb")))
